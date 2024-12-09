@@ -132,12 +132,12 @@ function jobTracker(data, job, location) {
             // console.log(item, index)
             return true
 
-        // }  else {
+            // }  else {
             // Mostra un alert se non ci sono risultati
             // window.alert("Nessun risultato trovato per i criteri di ricerca specificati.");
         }
-        
-            return false
+
+        return false
 
     })
 
@@ -158,32 +158,41 @@ function submitForm() {
 
 
 const formHtmlElement = document.getElementById("formId")
+const searchResultPreview = document.getElementById("searchResultPreview")
 // console.log(element)
 
 
-formHtmlElement.addEventListener("submit", function(event){
+formHtmlElement.addEventListener("submit", function (event) {
     event.preventDefault();
     const formData = new FormData(formHtmlElement)
     const inputJobValue = formData.get('jobName');
     const inputLocationValue = formData.get('location');
-    
+
+      
+    if (!inputJobValue && !inputLocationValue) {
+    return;
+  } 
+
+  
+    searchResultPreview.style.display = "block"
+
     console.log(inputJobValue)
     console.log(inputLocationValue)
     // console.log(formData)
     const searchResult = jobTracker(jobs, inputJobValue, inputLocationValue)
-     console.log(searchResult)
+    console.log(searchResult)
     const resultPreview = document.getElementById("searchResultPreview")
     resultPreview.innerHTML = ''
     if (searchResult.result.length === 0) {
-        alert ("nessun risultato")
+        alert("nessun risultato")
 
     }
     searchResult.result.forEach(element => {
         // console.log(element)
-        resultPreview.innerHTML+=('<li>'+element.title+' '+element.location+'</li>')
+        resultPreview.innerHTML += ('<li>' + element.title + ' ' + element.location + '</li>')
 
 
-       
+
     });
 
 
@@ -191,4 +200,3 @@ formHtmlElement.addEventListener("submit", function(event){
 
 
 
-  

@@ -4,30 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/425caef447.js" crossorigin="anonymous"></script>
     <title>m2w4d1-finale</title>
 </head>
 
 <body>
     <header id="header">
         <div class="container">
-            <h1>JobTraker.com</h1>
-            <p>find a job</p>
+            <h1 class="pageTitle">JobTraker.com</h1>
+            <!-- <p>find a job</p> -->
 
             <form  id="formId">
+               <div class="formFieldsGroup">
                 <div class="fieldGroup">
-                    <label for="jobName">Job Name</label>
+                    <label class="hiddenLabel" for="jobName">Job Name</label>
+            
                     <input id="jobName" type="text" name="jobName">
                 </div>
 
                 <div class="fieldGroup">
-                    <label for="location">Location</label>
+                    <label class="hiddenLabel" for="location">Location</label>
                     <input id="location" type="text" name="location">
                 </div>
                 
-                <div class="fieldGroup">
+                <div class="fieldGroup fieldGroupSubmit">
                     <button type="submit">Search</button>
                 </div>
+               </div>
 
             </form>
             
